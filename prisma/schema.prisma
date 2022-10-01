@@ -13,28 +13,19 @@ datasource db {
 model user {
   id       Int    @id @default(autoincrement())
   username String
-  score    Int @default(0)
+  score    Int    @default(0)
 }
 
 model question {
-  id        Int         @id @default(autoincrement())
-  question  String
-  correct   correct     @relation(fields: [correctId], references: [id])
-  correctId Int
-  incorrect incorrect[]
-
-  @@unique([id, correctId])
+  id       Int      @id @default(autoincrement())
+  question String
+  answer   answer[]
 }
 
-model correct {
-  id       Int        @id @default(autoincrement())
-  answer   String
-  question question[]
-}
-
-model incorrect {
+model answer {
   id         Int      @id @default(autoincrement())
   answer     String
   question   question @relation(fields: [questionId], references: [id])
   questionId Int
+  correct    Boolean  @default(false)
 }
