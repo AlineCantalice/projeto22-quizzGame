@@ -12,7 +12,7 @@ datasource db {
 
 model user {
   id       Int    @id @default(autoincrement())
-  username String
+  username String @unique
   score    Int    @default(0)
 }
 

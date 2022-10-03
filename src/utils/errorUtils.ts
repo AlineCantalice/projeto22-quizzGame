@@ -7,7 +7,7 @@ type AppErrorTypes =
   
 export interface AppError {
   type: AppErrorTypes;
-  message: string;
+  message?: string;
 }
 
 export function isAppError(error: object): error is AppError {

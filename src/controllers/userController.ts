@@ -3,9 +3,9 @@ import * as service from "../services/userService";
 import { CreateUserData } from "../types/userType";
 
 export async function createUser(req: Request, res: Response) {
-    const user: CreateUserData = req.body;
+        const user: CreateUserData = req.body;
 
-    service.createUser(user);
+        service.createUser(user);
 
-    res.status(201).send("User created");
+        res.status(201).send("User created");
 }
