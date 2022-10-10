@@ -7,7 +7,7 @@
     "start": "npx prisma db push --force-reset && npx prisma db seed && node dist/src/server.js",
     "dev": "npx prisma db push --force-reset && npx prisma db seed && nodemon src/server.ts",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "tsc && npx prisma db push --force-reset && npx prisma db seed && npx prisma migrate deploy"
+    "build": "tsc && npx prisma generate && npx prisma db seed && npx prisma migrate deploy"
   },
   "prisma": {
     "seed": "ts-node prisma/seed.ts"
