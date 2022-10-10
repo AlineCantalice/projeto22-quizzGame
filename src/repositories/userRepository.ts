@@ -1,6 +1,5 @@
-import { user } from "@prisma/client";
 import { prisma } from "../config/database";
-import { CreateUserData } from "../types/userType";
+import { CreateUserData, UpdateUserData } from "../types/userType";
 
 export async function createUser (user: CreateUserData) {
     await prisma.user.create({
@@ -8,7 +7,7 @@ export async function createUser (user: CreateUserData) {
     });
 }
 
-export async function updateScore (user: user) {
+export async function updateScore (user: UpdateUserData) {
     await prisma.user.update({
         where: { username: user.username },
         data: {
